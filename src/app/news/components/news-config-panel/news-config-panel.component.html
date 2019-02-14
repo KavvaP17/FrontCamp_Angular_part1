@@ -1,0 +1,28 @@
+<div class="news-config-panel">
+  <div class="source">
+    <mat-form-field>
+      <mat-select placeholder="Select source" (selectionChange)="changeChannel($event)">
+        <mat-option *ngFor="let channel of channels" [value]="channel.value">
+          {{channel.label}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="filter">
+      <form>
+          <mat-form-field class="filter-input">
+            <input matInput placeholder="Filter">
+          </mat-form-field>
+          <button mat-raised-button color="primary">Filter</button>
+      </form>
+  </div>
+  <div class="created-by-me">
+    <section class="created-by-me-section">
+      <mat-checkbox class="created-by-me-checkbox" [(ngModel)]="checked">Only created by me</mat-checkbox>
+    </section>
+  </div>
+  <div class="add-news">
+      <a mat-raised-button color="primary" [routerLink]="['/news/add']">Add news</a>
+  </div>
+</div>
+  

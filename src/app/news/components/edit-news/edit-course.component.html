@@ -1,0 +1,52 @@
+<form class="add-news-form"
+  (ngSubmit)="save()"
+  [formGroup]="editNewsForm">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Title"
+        formControlName="title"
+        name="title">
+    </mat-form-field>
+    <div class="error-wr">
+        <p class="error-msg"
+          *ngIf="!editNewsForm.controls.title.valid && editNewsForm.controls.title.touched">
+          The title must contain between 1 and 50 characters
+        </p>
+    </div>
+
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Description"
+        formControlName="description"
+        name="description"></textarea>
+    </mat-form-field>
+    <div class="error-wr">
+        <p class="error-msg"
+          *ngIf="!editNewsForm.controls.description.valid && editNewsForm.controls.description.touched">
+          The description must contain less than 500 characters
+        </p>
+    </div>
+
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker"
+        placeholder="Date"
+        formControlName="date"
+        name="date"
+        appDateValidator>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <div class="error-wr">
+        <p class="error-msg"
+          *ngIf="!editNewsForm.controls.date.valid && editNewsForm.controls.date.touched">
+          Date format should be dd/MM/yyyy
+        </p>
+    </div>
+
+    <div class="add-news-btns">
+      <button mat-raised-button color="primary"
+        class="add-news-btn"
+        type="submit"
+        [disabled]="!editNewsForm.valid">Save</button>
+      <button mat-raised-button color="warn" (click)="cancel()" class="close-add-page">Cancel</button>
+    </div>
+  </form>
+

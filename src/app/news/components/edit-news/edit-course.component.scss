@@ -1,0 +1,29 @@
+.add-news-form{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 400px;
+}
+
+.duration-filtred{
+    padding-left: 20px;
+}
+.add-news-btns{
+    display: flex;
+    justify-content: center;
+}
+.add-news-btn, .close-add-page {
+    margin: 10px;
+}
+
+.error-wr{
+  position: relative;
+  height: 15px;
+}
+
+.error-msg{
+  position: absolute;
+  top: -15px;
+  color: red;
+}
