@@ -10,6 +10,7 @@ import { DialogComponent } from '../dialog/dialog.component';
 export class NewsItemComponent implements OnInit {
 
   @Input() newsItem: NewsItem;
+  @Input() id: number;
   @Output() onDeleteNews = new EventEmitter<string>();
 
   constructor(public dialog: MatDialog) { }

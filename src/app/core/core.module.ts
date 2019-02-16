@@ -17,6 +17,7 @@ import { LoadingService } from './services/loading/loading.service';
 import { ConfigService } from './services/config/config.service';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { RouterModule } from '@angular/router';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { RouterModule } from '@angular/router';
     FooterComponent,
     LogoComponent,
     LogoutComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    LoadingComponent
   ],
   imports: [
     CommonModule,
@@ -43,7 +45,8 @@ import { RouterModule } from '@angular/router';
   exports: [
     HeaderComponent,
     FooterComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    LoadingComponent
   ]
 })
 export class CoreModule { }

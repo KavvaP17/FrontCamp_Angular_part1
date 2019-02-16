@@ -1,5 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { ConfigService } from 'src/app/core/services/config/config.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'news-config-panel',
@@ -8,18 +9,26 @@ import { ConfigService } from 'src/app/core/services/config/config.service';
 })
 export class NewsConfigPanelComponent implements OnInit {
   channels : Channel[];
-
+  selectedChannel: string;
+  @Input() source: string;
   @Output() onChangedChannel = new EventEmitter<Channel>();
 
-  constructor(private configService: ConfigService) { }
+
+  constructor(private configService: ConfigService,
+              private router: Router) { }
 
   ngOnInit() {
     this.channels = this.configService.newsApi.channels;
+    if (this.source) {
+      this.selectedChannel = this.channels.find(channel => channel.label === this.source).value;
+    } else {
+      this.selectedChannel = this.channels[0].value;
+    }
+    this.router.navigate(['/news'], { queryParams: { source: this.selectedChannel}});
   }
 
   changeChannel(channelValue) {
-    const channel = this.channels.find(_chanel => _chanel.value === channelValue.value);
-    this.onChangedChannel.emit(channel);
+    this.router.navigate(['/news'], { queryParams: { source: channelValue.value}});
   }
 }
 

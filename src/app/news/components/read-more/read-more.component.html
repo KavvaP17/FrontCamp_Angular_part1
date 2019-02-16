@@ -1,3 +1,4 @@
+<news-source [source]="source"></news-source>
 <div class="news-wr">
     <div class="news-img">
       <img src={{newsItem.urlToImage}} alt={{newsItem.title}} width="300px" height="200px">
@@ -20,13 +21,15 @@
                       <mat-icon svgIcon="delete" class="news-panel-icon-delete"></mat-icon>
                     </a>
                   </div>
+                  <div class="news-edit-btn">
+                      <a mat-icon-button color="primary" class="news-panel-btn" (click)="back()">
+                        Back
+                      </a>
+                    </div>
                 </div>
           </div>
           <div class="news-description">
-            <p>{{newsItem.description}}</p>
-          </div>
-          <div class="news-read-more">
-            <a [routerLink]="['/news/read', id]" [queryParams]="{ source: newsItem.source.id}">Read more...</a>
+            <p>{{newsItem.content? newsItem.content: newsItem.description}}</p>
           </div>
       </div>
   
@@ -35,7 +38,11 @@
           <mat-icon svgIcon="calendar" class="news-panel-icons"></mat-icon>
           <span class="news-panel-text news-panel-creation">{{newsItem.publishedAt}}</span>
         </div>
+        <div class="news-date">
+          <mat-icon svgIcon="author" class="news-panel-icons"></mat-icon>
+          <span class="news-panel-text news-panel-creation">{{newsItem.author}}</span>
+        </div>
       </div>
     </div>
   </div>
-  
+

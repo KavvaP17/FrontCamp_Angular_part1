@@ -9,6 +9,10 @@ export class ConfigService {
       url : 'https://newsapi.org/v2/everything?',
       channels : [
         {
+            label: 'LOCAL NEWS',
+            value: 'local-news'
+        },
+        {
             label: 'ABC NEWS',
             value: 'abc-news'
         },
@@ -36,5 +40,13 @@ export class ConfigService {
     }
   
   constructor() { }
+
+  getSourceLabelByValue(value: string): string {
+      const channel = this.newsApi.channels.find(_channel => _channel.value === value);
+      if (channel) {
+          return channel.label;
+      }
+      return '';
+  }
 
 }

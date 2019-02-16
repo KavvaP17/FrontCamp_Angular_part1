@@ -1,6 +1,6 @@
 <div>
   <news-source [source]="source"></news-source>
-  <news-config-panel (onChangedChannel)="changedChannel($event)"></news-config-panel>
+  <news-config-panel (onChangedChannel)="changedChannel($event)" [source]="source"></news-config-panel>
   <news-list [newsList]="newsList"></news-list>
   <load-more></load-more>
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'add-news',
@@ -12,20 +13,23 @@ export class AddNewsComponent implements OnInit, OnDestroy {
   public newsForm: FormGroup;
 
   constructor(private router: Router,
-              private fb: FormBuilder) { }
+              private fb: FormBuilder,
+              private location: Location) { }
 
   ngOnInit() {
     this.newsForm = this.fb.group({
       title: ['', [Validators.required, Validators.maxLength(50)]],
-      description: ['', Validators.maxLength(500)],
+      description: ['', Validators.maxLength(200)],
+      content: ['', Validators.maxLength(500)],
+      image: [''],
       date: [''],
-      duration: [0],
-      authors: [[]]
+      author: [''],
+      url: ['']
     });
   }
 
   public close() {
-    this.router.navigate(['news']);
+    this.location.back();
   }
 
   public save() {

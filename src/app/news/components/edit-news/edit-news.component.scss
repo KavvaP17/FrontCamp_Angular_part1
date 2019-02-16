@@ -2,8 +2,8 @@
     margin: 0 auto;
     display: flex;
     justify-content: center;
-    flex-direction: column;
-    max-width: 400px;
+    flex-direction: row;
+    max-width: 900px;
 }
 
 .duration-filtred{
@@ -11,10 +11,11 @@
 }
 .add-news-btns{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 .add-news-btn, .close-add-page {
     margin: 10px;
+    width: 100%;
 }
 
 .error-wr{
@@ -26,4 +27,14 @@
   position: absolute;
   top: -15px;
   color: red;
+}
+.col1, .col2 {
+    min-width: 450px;
+    margin: 20px;
+}
+.example-full-width{
+    width: 100%;
+}
+.content-textarea{
+    height: 150px;
 }

@@ -1,7 +1,7 @@
 <div class="news-config-panel">
   <div class="source">
     <mat-form-field>
-      <mat-select placeholder="Select source" (selectionChange)="changeChannel($event)">
+      <mat-select placeholder="Select source" (selectionChange)="changeChannel($event)" [(ngModel)]="selectedChannel">
         <mat-option *ngFor="let channel of channels" [value]="channel.value">
           {{channel.label}}
         </mat-option>

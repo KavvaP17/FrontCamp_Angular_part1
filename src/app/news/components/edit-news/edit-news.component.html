@@ -1,7 +1,7 @@
-<news-source [source]="'ADD NEW NEWS'"></news-source>
+<news-source [source]="'EDIT NEWS'"></news-source>
 <form class="add-news-form"
   (ngSubmit)="save()"
-  [formGroup]="newsForm"
+  [formGroup]="editNewsForm"
   novalidate>
   <div class="col1">
     <mat-form-field class="example-full-width">
@@ -11,7 +11,7 @@
     </mat-form-field>
     <div class="error-wr">
         <p class="error-msg"
-          *ngIf="!newsForm.controls.title.valid && newsForm.controls.title.touched">
+          *ngIf="!editNewsForm.controls.title.valid && editNewsForm.controls.title.touched">
           The title must contain between 1 and 50 characters
         </p>
     </div>
@@ -23,7 +23,7 @@
     </mat-form-field>
     <div class="error-wr">
         <p class="error-msg"
-          *ngIf="!newsForm.controls.description.valid && newsForm.controls.description.touched">
+          *ngIf="!editNewsForm.controls.description.valid && editNewsForm.controls.description.touched">
           The description must contain less than 200 characters
         </p>
     </div>
@@ -36,7 +36,7 @@
     </mat-form-field>
     <div class="error-wr">
         <p class="error-msg"
-          *ngIf="!newsForm.controls.content.valid && newsForm.controls.content.touched">
+          *ngIf="!editNewsForm.controls.content.valid && editNewsForm.controls.content.touched">
           The content must contain less than 500 characters
         </p>
     </div>  
@@ -60,7 +60,7 @@
     </mat-form-field>
     <div class="error-wr">
         <p class="error-msg"
-          *ngIf="!newsForm.controls.date.valid && newsForm.controls.date.touched">
+          *ngIf="!editNewsForm.controls.date.valid && editNewsForm.controls.date.touched">
           Date format should be dd/MM/yyyy
         </p>
     </div>
@@ -82,7 +82,7 @@
       <button mat-raised-button color="primary"
         class="add-news-btn"
         type="submit"
-        [disabled]="!newsForm.valid">Save</button>
+        [disabled]="!editNewsForm.valid">Save</button>
       <button mat-raised-button color="warn"
         (click)="close()"
         class="close-add-page">Cancel</button>

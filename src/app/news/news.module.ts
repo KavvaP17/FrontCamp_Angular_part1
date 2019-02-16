@@ -20,8 +20,9 @@ import { NewsReadMoreComponent } from './components/news-read-more/news-read-mor
 import { AddNewsComponent } from './components/add-news/add-news.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MatDialogModule } from '@angular/material';
-import { EditNewsComponent } from './components/edit-news/edit-course.component';
+import { EditNewsComponent } from './components/edit-news/edit-news.component';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { ReadMoreComponent } from './components/read-more/read-more.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { DialogComponent } from './components/dialog/dialog.component';
     NewsReadMoreComponent,
     AddNewsComponent,
     DialogComponent,
-    EditNewsComponent
+    EditNewsComponent,
+    ReadMoreComponent
   ],
   imports: [
     CommonModule,
